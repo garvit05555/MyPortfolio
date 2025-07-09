@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garvit Agarwal - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom CSS for animations (Tailwind doesn't support @keyframes directly in config for CDN) */
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+        .animate-fade-in-up.delay-200 { animation-delay: 0.2s; }
+        .animate-fade-in-up.delay-400 { animation-delay: 0.4s; }
+
+        @keyframes bubble {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            50% { opacity: 0.2; }
+            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+        }
+        .animate-bubble {
+            animation: bubble linear infinite;
+        }
+
+        /* Ensure smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Basic styling for body to ensure full height and background */
+        body {
+            font-family: 'Inter', sans-serif; /* Using Inter font as per instructions */
+            background-color: #1a202c; /* Consistent with dark theme */
+            color: #e2e8f0; /* Light text color */
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-900 text-gray-100">
+
+    <header class="bg-gray-900 text-white p-4 shadow-lg fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center rounded-md">
+            <h1 class="text-2xl font-bold text-indigo-400">Garvit Agarwal</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#home" class="hover:text-indigo-400 transition-colors duration-300">Home</a></li>
+                    <li><a href="#about" class="hover:text-indigo-400 transition-colors duration-300">About</a></li>
+                    <li><a href="#projects" class="hover:text-indigo-400 transition-colors duration-300">Projects</a></li>
+                    <li><a href="#contact" class="hover:text-indigo-400 transition-colors duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="relative h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-indigo-900 text-white p-6 rounded-md">
+            <div class="text-center z-10">
+                <h2 class="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in-up">Hey, I'm <span class="text-indigo-400">Garvit Agarwal</span></h2>
+                <p class="text-xl md:text-3xl font-light mb-8 animate-fade-in-up delay-200">B.Tech CSE Student | Aspiring Software Developer</p>
+                <div class="flex justify-center space-x-6 animate-fade-in-up delay-400">
+                    <a href="#projects" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+            <div class="absolute inset-0 overflow-hidden">
+                <script>
+                    // JavaScript to generate bubbles
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const heroSection = document.getElementById('home');
+                        const bubbleContainer = heroSection.querySelector('.absolute.inset-0.overflow-hidden');
+                        for (let i = 0; i < 10; i++) {
+                            const bubble = document.createElement('div');
+                            bubble.className = 'absolute bg-indigo-500 opacity-10 rounded-full animate-bubble';
+                            bubble.style.width = `${Math.random() * 100 + 50}px`;
+                            bubble.style.height = `${Math.random() * 100 + 50}px`;
+                            bubble.style.left = `${Math.random() * 100}%`;
+                            bubble.style.top = `${Math.random() * 100}%`;
+                            bubble.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                            bubble.style.animationDelay = `${Math.random() * 5}s`;
+                            bubbleContainer.appendChild(bubble);
+                        }
+                    });
+                </script>
+            </div>
+        </section>
+
+        <section id="about" class="bg-gray-800 text-white py-20 px-6 rounded-md">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-4xl font-bold text-center text-indigo-400 mb-12">About Me</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-lg leading-relaxed">
+                        <p class="mb-6">Hello! I'm Garvit Agarwal, a passionate 19-year-old B.Tech Computer Science and Engineering student at Global Institute of Technology. I'm driven by a curiosity for technology and a strong desire to build impactful solutions. My journey in CSE has equipped me with foundational skills in web development, problem-solving, and a keen eye for creating user-friendly interfaces. I'm constantly learning and eager to contribute to innovative projects.</p>
+                        <h3 class="text-2xl font-semibold mb-4 flex items-center"><i data-lucide="user" class="mr-3 text-indigo-400"></i>Education</h3>
+                        <p class="mb-2"><strong>Bachelor of Technology (B.Tech)</strong> in Computer Science and Engineering (CSE)</p>
+                        <p class="mb-6">Global Institute of Technology (Currently Pursuing)</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 flex items-center"><i data-lucide="award" class="mr-3 text-indigo-400"></i>Skills</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:bg-indigo-700 transition-colors duration-300">HTML</span>
+                            <span class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:bg-indigo-700 transition-colors duration-300">CSS</span>
+                            <span class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:bg-indigo-700 transition-colors duration-300">JavaScript</span>
+                            <span class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:bg-indigo-700 transition-colors duration-300">Responsive Design</span>
+                            <span class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:bg-indigo-700 transition-colors duration-300">Git</span>
+                            <span class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:bg-indigo-700 transition-colors duration-300">GitHub</span>
+                            <span class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:bg-indigo-700 transition-colors duration-300">Problem Solving</span>
+                            <span class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:bg-indigo-700 transition-colors duration-300">Data Structures & Algorithms (Basic)</span>
+                            <span class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:bg-indigo-700 transition-colors duration-300">UI/UX Principles</span>
+                        </div>
+                        <div class="mt-8 bg-gray-700 rounded-lg overflow-hidden shadow-xl">
+                            <img
+                                src="me.jpg"
+                                alt="Garvit Agarwal"
+                                class="w-full h-auto rounded-lg"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x400/374151/FFFFFF?text=Image+Not+Found';"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="bg-gray-900 text-white py-20 px-6 rounded-md">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-4xl font-bold text-center text-indigo-400 mb-12">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-indigo-300 mb-3">Personal Portfolio Website (Previous Iteration)</h3>
+                            <p class="text-gray-300 mb-4">A responsive web portfolio designed to showcase my early skills and projects. This project demonstrates foundational front-end development.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">HTML</span>
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">CSS</span>
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">JavaScript</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="https://garvit05555.github.io/website/" target="_blank" rel="noopener noreferrer" class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300 font-semibold">
+                                    <i data-lucide="external-link" class="mr-2"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/garvit05555/website" target="_blank" rel="noopener noreferrer" class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300 font-semibold">
+                                    <i data-lucide="github" class="mr-2"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-indigo-300 mb-3">Basic E-commerce Store Front-End</h3>
+                            <p class="text-gray-300 mb-4">A simulated front-end interface for an e-commerce platform, demonstrating product display, category navigation, and basic UI elements.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">HTML</span>
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">CSS</span>
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">JavaScript</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="https://garvit05555.github.io/E-commerce-store/" target="_blank" rel="noopener noreferrer" class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300 font-semibold">
+                                    <i data-lucide="external-link" class="mr-2"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/garvit05555/E-commerce-store" target="_blank" rel="noopener noreferrer" class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300 font-semibold">
+                                    <i data-lucide="github" class="mr-2"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-indigo-300 mb-3">Interactive Web Form</h3>
+                            <p class="text-gray-300 mb-4">A clean and user-friendly web form, focusing on input validation, accessible design, and a smooth user experience.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">HTML</span>
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">CSS</span>
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">JavaScript</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="https://garvit05555.github.io/form/" target="_blank" rel="noopener noreferrer" class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300 font-semibold">
+                                    <i data-lucide="external-link" class="mr-2"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/garvit05555/form" target="_blank" rel="noopener noreferrer" class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300 font-semibold">
+                                    <i data-lucide="github" class="mr-2"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-indigo-300 mb-3">Animal Information Display Page</h3>
+                            <p class="text-gray-300 mb-4">A dynamic web page presenting information about various animals, showcasing content organization and visual presentation skills.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">HTML</span>
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">CSS</span>
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">JavaScript</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="https://garvit05555.github.io/animals/" target="_blank" rel="noopener noreferrer" class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300 font-semibold">
+                                    <i data-lucide="external-link" class="mr-2"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/garvit05555/animals" target="_blank" rel="noopener noreferrer" class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300 font-semibold">
+                                    <i data-lucide="github" class="mr-2"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-indigo-300 mb-3">Responsive Image Gallery</h3>
+                            <p class="text-gray-300 mb-4">A simple web-based image gallery demonstrating responsive design principles to display images effectively across different screen sizes.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">HTML</span>
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">CSS</span>
+                                <span class="bg-gray-600 text-gray-200 px-3 py-1 rounded-full text-xs font-medium">JavaScript</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="https://garvit05555.github.io/gallery/" target="_blank" rel="noopener noreferrer" class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300 font-semibold">
+                                    <i data-lucide="external-link" class="mr-2"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/garvit05555/gallery" target="_blank" rel="noopener noreferrer" class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors duration-300 font-semibold">
+                                    <i data-lucide="github" class="mr-2"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-gray-800 text-white py-20 px-6 rounded-md">
+            <div class="container mx-auto max-w-2xl text-center">
+                <h2 class="text-4xl font-bold text-indigo-400 mb-8">Get In Touch</h2>
+                <p class="text-lg mb-8">
+                    I'm always open to new opportunities, collaborations, and discussions. Feel free to reach out!
+                </p>
+                <div class="flex flex-col items-center space-y-6">
+                    <a href="mailto:garvit0555@gmail.com" class="flex items-center text-xl text-indigo-300 hover:text-indigo-200 transition-colors duration-300">
+                        <i data-lucide="mail" class="mr-4"></i> garvit0555@gmail.com
+                    </a>
+                    <a href="tel:+919057562450" class="flex items-center text-xl text-indigo-300 hover:text-indigo-200 transition-colors duration-300">
+                        <i data-lucide="phone" class="mr-4"></i> +91-9057562450
+                    </a>
+                    <div class="flex space-x-8 mt-6">
+                        <a href="https://www.linkedin.com/in/garvit-agarwal-139156327/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors duration-300" aria-label="LinkedIn Profile">
+                            <i data-lucide="linkedin" class="w-10 h-10"></i>
+                        </a>
+                        <a href="https://github.com/garvit05555" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors duration-300" aria-label="GitHub Profile">
+                            <i data-lucide="github" class="w-10 h-10"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm rounded-md">
+        <div class="container mx-auto">
+            <p>&copy; <span id="current-year"></span> Garvit Agarwal. All rights reserved.</p>
+            <p>Built with HTML, Tailwind CSS & JavaScript.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Smooth scrolling for navigation links (if not handled by scroll-behavior: smooth)
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Optional: Add intersection observer for fade-in animations on scroll
+        const faders = document.querySelectorAll('.animate-fade-in-up');
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('fade-in-visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+        // Add CSS for fade-in-visible class
+        const styleSheet = document.createElement("style");
+        styleSheet.type = "text/css";
+        styleSheet.innerText = `
+            .animate-fade-in-up { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+            .animate-fade-in-up.fade-in-visible { opacity: 1; transform: translateY(0); }
+            .animate-fade-in-up.delay-200 { transition-delay: 0.2s; }
+            .animate-fade-in-up.delay-400 { transition-delay: 0.4s; }
+        `;
+        document.head.appendChild(styleSheet);
+
+    </script>
+</body>
+</html>
